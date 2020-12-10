@@ -21,6 +21,7 @@ import com.example.appquanli12.ViewHolder.CategoryViewHolder;
 import com.example.appquanli12.ViewHolder.MenuViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -46,8 +47,14 @@ public class food_category extends AppCompatActivity {
         getSupportActionBar().setTitle("Danh mục món ăn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
-
+        FloatingActionButton fab2 =(FloatingActionButton)findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cartIntent= new Intent(food_category.this,Cart.class);
+                startActivity(cartIntent);
+            }
+        });
 
 
         //Init Firebase
