@@ -4,18 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.appquanli12.Common.Common;
 import com.example.appquanli12.Database.Database;
 import com.example.appquanli12.Model.Order;
+import com.example.appquanli12.Model.Request;
 import com.example.appquanli12.ViewHolder.CartAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.sql.Time;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -29,13 +38,22 @@ public class Cart extends AppCompatActivity {
     TextView txtTotalPrice;
     Button btnPlace;
 
+    String year,month,day;
+
     List<Order> cart=new ArrayList<>();
     CartAdapter adapter;
+
+    //time
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
+        //time
+
+
 
 
       database=FirebaseDatabase.getInstance();
@@ -48,6 +66,22 @@ public class Cart extends AppCompatActivity {
 
       txtTotalPrice=(TextView)findViewById(R.id.total);
       btnPlace=(Button)findViewById(R.id.btnPlaceOrder);
+
+      btnPlace.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+              Request request=new Request(
+                      txtTotalPrice.getText().toString(),
+                      cart
+              );
+              reference.child(String.valueOf(System.currentTimeMillis()))
+                      .setValue(request);
+              new Database(getBaseContext()).cleanCart();
+              Toast.makeText(Cart.this, "Thank you. Order placed", Toast.LENGTH_SHORT).show();
+              //finish();
+
+          }
+      });
       
       loadListFood();
     }
@@ -64,5 +98,18 @@ public class Cart extends AppCompatActivity {
         NumberFormat fmt =NumberFormat.getCurrencyInstance(locale);
 
         txtTotalPrice.setText(fmt.format(total));
+    }
+
+    private void timeday(){
+
+        Calendar c = Calendar.getInstance();
+        int y = c.get(Calendar.YEAR);
+        int m = c.get(Calendar.MONTH);
+        int d = c.get(Calendar.DATE);
+
+        year = String.valueOf(y);
+        month = String.valueOf(m);
+        day = String.valueOf(d);
+
     }
 }
