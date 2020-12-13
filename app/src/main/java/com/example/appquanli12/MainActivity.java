@@ -81,6 +81,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     holder.setItemClickListener(new ItemClickListener() {
                         @Override
                         public void onClick(View view, int position, boolean isLongClick) {
+
+                            //
                             startActivity(new Intent(getApplicationContext(),food_category.class));
                         }
                     });
@@ -123,6 +125,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_list_food:
                 Intent intent = new Intent(MainActivity.this,SettingCategory.class);
                 startActivity(intent);
+                break;
+
+            case R.id.nav_profile:
+                Intent intent1 = new Intent(MainActivity.this,Profile.class);
+                startActivity(intent1);
                 break;
 
             case R.id.nav_logout:
