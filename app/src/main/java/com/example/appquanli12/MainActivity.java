@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         public void onClick(View view, int position, boolean isLongClick) {
 
                             //
-                            startActivity(new Intent(getApplicationContext(),food_category.class));
+                            startActivity(new Intent(getApplicationContext(),order_pay.class));
                         }
                     });
                 }
