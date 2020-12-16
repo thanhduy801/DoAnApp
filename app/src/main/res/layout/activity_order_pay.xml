@@ -23,13 +23,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_food"
-            android:layout_width="match_parent"
-            android:layout_height="543dp"
+            android:id="@+id/listCart"
+            android:layout_width="400dp"
+            android:layout_height="514dp"
             android:layout_below="@+id/toolbar_food"
             android:layout_marginTop="51dp"
             android:scrollbars="vertical"></androidx.recyclerview.widget.RecyclerView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="358dp"
+            android:layout_marginBottom="78dp"
+            android:text="Total"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="168dp"
+            android:layout_marginBottom="72dp"
+            android:text="$00,000"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/pay"
