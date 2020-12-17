@@ -111,7 +111,6 @@ public class Cart extends AppCompatActivity {
         year = String.valueOf(y);
         month = String.valueOf(m);
         day = String.valueOf(d);
-
     }
   /*  private void Doanhthu()
     {
