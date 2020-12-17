@@ -60,7 +60,7 @@ public class Food_Menu extends AppCompatActivity {
     List<String> suggestList =new ArrayList<>();
     MaterialSearchBar materialSearchBar;
 
-    ImageView btn_add_food;
+    ImageView btn_add_food,imageView3;
     String foodId="";
 
     //banner
@@ -79,6 +79,14 @@ public class Food_Menu extends AppCompatActivity {
         init();
 
         btn_add_food=(ImageView)findViewById(R.id.btn_add_food);
+        imageView3=(ImageView)findViewById(R.id.imageView3);
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cartIntent= new Intent(Food_Menu.this,Cart.class);
+                startActivity(cartIntent);
+            }
+        });
 
         final Database helper=new Database(this);
 
@@ -270,7 +278,7 @@ public class Food_Menu extends AppCompatActivity {
             public void run() {
                 handler.post(Update);
             }
-        }, 2000, 2000);
+        }, 3000, 3000);
 
     }
 }

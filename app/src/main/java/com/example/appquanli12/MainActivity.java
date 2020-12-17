@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(MainActivity.this, "Duy Vo", Toast.LENGTH_SHORT).show();
+                Intent foodList=new Intent(MainActivity.this,BillDateTime.class);
+                startActivity(foodList);
 
             }
         });
@@ -118,13 +119,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 break;
 
+            case R.id.nav_order:
+                Intent intent0 = new Intent(MainActivity.this,food_category.class);
+                startActivity(intent0);
+                break;
+
             case R.id.nav_list_food:
                 Intent intent = new Intent(MainActivity.this,SettingCategory.class);
                 startActivity(intent);
                 break;
 
             case R.id.nav_list_danhthu:
-
+                Intent intent2 = new Intent(MainActivity.this,BillDateTime.class);
+                startActivity(intent2);
                 break;
 
             case R.id.nav_profile:

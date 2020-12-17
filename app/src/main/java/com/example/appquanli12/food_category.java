@@ -149,7 +149,7 @@ public class food_category extends AppCompatActivity {
             public void run() {
                 handler.post(Update);
             }
-        }, 2000, 2000);
+        }, 3000, 3000);
 
     }
 

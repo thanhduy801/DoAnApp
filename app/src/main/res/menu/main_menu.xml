@@ -6,6 +6,11 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/home_icon"
             android:title="Home" />
+
+        <item
+            android:id="@+id/nav_order"
+            android:icon="@drawable/ic_baseline_perm_phone_msg_24"
+            android:title="Đặt món" />
         <item
 
             android:id="@+id/nav_list_food"

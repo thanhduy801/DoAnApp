@@ -22,9 +22,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            android:layout_below="@+id/toolbar_food"
+            app:mt_hint="Enter your food"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:id="@+id/searchBar"
+            android:background="@drawable/shapebgsearch"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@+id/toolbar_food"
+            android:layout_below="@+id/searchBar"
             android:id="@+id/recycler_food"
             android:scrollbars="vertical"
             android:layout_width="match_parent"

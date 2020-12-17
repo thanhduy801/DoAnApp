@@ -29,7 +29,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="360dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="7dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/shopping" />
@@ -54,7 +54,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Nasi Padang"
-            android:textColor="@android:color/white"
+            android:textColor="#C2DC52"
             android:textSize="26sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_food" />

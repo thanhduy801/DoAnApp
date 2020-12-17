@@ -6,11 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -44,6 +46,8 @@ public class Cart extends AppCompatActivity {
     TextView txtTotalPrice,datetime;
     Button btnPlace;
 
+    ImageView add_new;
+
     List<Order> cart=new ArrayList<>();
     CartAdapter adapter;
 
@@ -72,6 +76,14 @@ public class Cart extends AppCompatActivity {
       txtTotalPrice=(TextView)findViewById(R.id.total);
       datetime=(TextView)findViewById(R.id.date);
       btnPlace=(Button)findViewById(R.id.btnPlaceOrder);
+      add_new=(ImageView) findViewById(R.id.add_new);
+        add_new.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cartIntent= new Intent(Cart.this,food_category.class);
+                startActivity(cartIntent);
+            }
+        });
 
       btnPlace.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -105,15 +117,14 @@ public class Cart extends AppCompatActivity {
             total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
         Locale locale=new Locale("en","US");
         NumberFormat fmt =NumberFormat.getCurrencyInstance(locale);
-        String s=String.valueOf(total);
-        txtTotalPrice.setText(s);
+        txtTotalPrice.setText(fmt.format(total));
 
         /*Calendar c = Calendar.getInstance();
         int date = c.get(Calendar.MONTH);
         String a=String.valueOf(date);
         datetime.setText(a);*/
 
-        DateFormat df = new SimpleDateFormat("yyyyMMdd");
+        DateFormat df = new SimpleDateFormat("dd:MM:yyyy");
         String strDate = df.format(new Date());
         datetime.setText(strDate);
     }

@@ -218,9 +218,7 @@ public class SettingMenu extends AppCompatActivity {
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-                        Intent foodDetail = new Intent(SettingMenu.this, FoodDetail.class);
-                        foodDetail.putExtra("FoodId", adapter.getRef(position).getKey());
-                        startActivity(foodDetail);
+
                     }
                 });
             }
@@ -228,7 +226,7 @@ public class SettingMenu extends AppCompatActivity {
             @NonNull
             @Override
             public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_item, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_setting_item, parent, false);
                 FoodViewHolder viewHolder = new FoodViewHolder(view);
                 return viewHolder;
             }

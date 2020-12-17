@@ -22,6 +22,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/add_new"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="360dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_add" />
 
 <RelativeLayout
     android:layout_width="match_parent"
@@ -37,7 +46,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_alignParentBottom="true"
-        app:cardBackgroundColor="#EAC271"
+        app:cardBackgroundColor="#B9F1E4"
         android:layout_width="match_parent"
         android:layout_height="100dp">
         <RelativeLayout
@@ -58,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="2dp"
                     android:id="@+id/total"
                     android:text="10,000"
                     android:textSize="24sp"
@@ -66,10 +75,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:layout_marginLeft="50dp"
+                    android:text="Date:"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:layout_marginLeft="2dp"
                     android:id="@+id/date"
-                    android:text="10,000"
-                    android:textSize="24sp"
+                    android:text="18:12:2020"
+                    android:textSize="20sp"
                     android:textColor="@android:color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
@@ -80,7 +96,7 @@
                 android:id="@+id/btnPlaceOrder"
                 android:text="Place Order"
                 android:textColor="@android:color/white"
-                android:background="@drawable/color_item_food"
+                android:background="@drawable/color_toolbar"
                 android:layout_marginRight="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_alignParentBottom="true"

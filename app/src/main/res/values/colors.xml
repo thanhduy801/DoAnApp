@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF6D00</color>
+    <color name="colorPrimary">#EDEFE6</color>
     <color name="colorPrimaryDark">@drawable/color_toolbar</color>
     <color name="colorAccent">#03DAC5</color>
 
