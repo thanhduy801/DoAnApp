@@ -3,28 +3,35 @@ package com.example.appquanli12;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.appquanli12.Interface.ItemClickListener;
 import com.example.appquanli12.Model.Category;
-import com.example.appquanli12.Model.Table;
+import com.example.appquanli12.Model.SpacesItemDecoration;
 import com.example.appquanli12.ViewHolder.CategoryViewHolder;
-import com.example.appquanli12.ViewHolder.MenuViewHolder;
+import com.example.appquanli12.ViewHolder.SlidingImage_Adapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+import com.viewpagerindicator.CirclePageIndicator;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class food_category extends AppCompatActivity {
 
@@ -32,9 +39,15 @@ public class food_category extends AppCompatActivity {
     DatabaseReference category;
 
     RecyclerView recyclercategory;
-    RecyclerView.LayoutManager layoutManager;
 
     FirebaseRecyclerAdapter<Category, CategoryViewHolder> adapter;
+
+    //banner
+    private static ViewPager mPager;
+    private static int currentPage = 0;
+    private static int NUM_PAGES = 0;
+    private static final Integer[] IMAGES= {R.drawable.one,R.drawable.two,R.drawable.three,R.drawable.fourt,R.drawable.fire,R.drawable.six};
+    private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +77,14 @@ public class food_category extends AppCompatActivity {
         //Load menu
         recyclercategory = (RecyclerView) findViewById(R.id.recycler_category);
         recyclercategory.setHasFixedSize(true);
-        layoutManager=new LinearLayoutManager(this);
-        recyclercategory.setLayoutManager(layoutManager);
+        recyclercategory.setLayoutManager(new GridLayoutManager(this,2));
+        recyclercategory.addItemDecoration(new SpacesItemDecoration(15));
+
+
+        //banner
+        init();
 
         FirebaseRecyclerOptions<Category> options= new FirebaseRecyclerOptions.Builder<Category>().setQuery(category,Category.class).build();
-
-
         adapter = new FirebaseRecyclerAdapter<Category, CategoryViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull CategoryViewHolder holder, int position, @NonNull Category model) {
@@ -101,8 +116,40 @@ public class food_category extends AppCompatActivity {
         adapter.notifyDataSetChanged();
         adapter.startListening();
 
+    }
 
 
+    private void init() {
+        for(int i=0;i<IMAGES.length;i++)
+            ImagesArray.add(IMAGES[i]);
+
+        mPager = (ViewPager) findViewById(R.id.pager);
+
+
+        mPager.setAdapter(new SlidingImage_Adapter(food_category.this,ImagesArray));
+        ;
+
+        final float density = getResources().getDisplayMetrics().density;
+
+        NUM_PAGES =IMAGES.length;
+
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 2000, 2000);
 
     }
 

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login"
-    android:orientation="vertical"
-    android:background="@drawable/bgr">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    android:background="@drawable/bgrroom">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:textStyle="bold"
@@ -15,7 +21,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aclonica"
         android:text="Home Food"
-        android:textColor="#F8F8FA"
+        android:textColor="#BEE828"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,10 +87,10 @@
         <Button
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:background="@drawable/botronbutton"
+            android:background="@drawable/add_to_cart_bg"
             android:id="@+id/loginBtn"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -96,13 +102,14 @@
             app:layout_constraintTop_toBottomOf="@+id/cb_login"/>
 
     <TextView
+        android:textSize="16sp"
         android:textStyle="bold"
         android:id="@+id/createText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Create Account"
-        android:textColor="#FF9800"
+        android:textColor="#BEE828"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
@@ -121,12 +128,13 @@
             app:layout_constraintTop_toBottomOf="@+id/createText"
             app:layout_constraintVertical_bias="0.289" />
 
-        <TextView
+    <TextView
+        android:textSize="16sp"
         android:id="@+id/forgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password"
-        android:textColor="#FF9800"
+        android:textColor="#BEE828"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -136,3 +144,4 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

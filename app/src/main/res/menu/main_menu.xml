@@ -9,8 +9,13 @@
         <item
 
             android:id="@+id/nav_list_food"
-            android:icon="@drawable/home_icon"
+            android:icon="@drawable/food_icon"
             android:title="Quản lý món ăn" />
+        <item
+
+            android:id="@+id/nav_list_danhthu"
+            android:icon="@drawable/money"
+            android:title="Quản lý danh thu" />
 
 
     </group>
@@ -23,7 +28,7 @@
 
                 <item
                     android:id="@+id/nav_profile"
-                    android:icon="@drawable/profile_icon"
+                    android:icon="@drawable/ic_person_black_24dp"
                     android:title=" Quản lý Profile" />
 
                 <item
@@ -34,17 +39,4 @@
         </menu>
     </item>
 
-    <item android:title="Communicate">
-
-        <menu>
-
-            <item
-                android:id="@+id/nav_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_nhaa"
-                android:title="Sha" />
-
-        </menu>
-    </item>
 </menu>

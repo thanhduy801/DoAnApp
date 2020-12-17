@@ -54,7 +54,7 @@ public class Login extends AppCompatActivity {
         //Lấy tài khoản đã lưu
         mEmail.setText(sharedPreferences.getString("taikhoan",""));
         mPassword.setText(sharedPreferences.getString("matkhau",""));
-        mCheckbox.setChecked(sharedPreferences.getBoolean("cheacked",false));
+        mCheckbox.setChecked(sharedPreferences.getBoolean("cheacked",true));
 
 
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#FF6D00</color>
-    <color name="colorPrimaryDark">#FF6D00</color>
+    <color name="colorPrimaryDark">@drawable/color_toolbar</color>
     <color name="colorAccent">#03DAC5</color>
 
     <color name="colorbgr1">#A6CCD3CC</color>
-    <color name="colortableitem">#FCFDFC</color>
+    <color name="colortableitem">@drawable/color_icon</color>
 
 
 </resources>

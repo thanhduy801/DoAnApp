@@ -2,6 +2,7 @@ package com.example.appquanli12;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -43,6 +44,11 @@ public class EditProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
+
+        Toolbar toolbar=findViewById(R.id.toolbar_change);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Danh sách món ăn");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent data = getIntent();
         final String fullName = data.getStringExtra("fullName");

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ import android.widget.Toast;
 import com.example.appquanli12.Common.Common;
 import com.example.appquanli12.Interface.ItemClickListener;
 import com.example.appquanli12.Model.Category;
+import com.example.appquanli12.Model.SpacesItemDecoration;
 import com.example.appquanli12.ViewHolder.CategoryViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -49,7 +51,7 @@ public class SettingCategory extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageReference;
 
-    RecyclerView recyclercategory;
+    RecyclerView recycler;
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseRecyclerAdapter<Category, CategoryViewHolder> adapter;
@@ -95,10 +97,10 @@ public class SettingCategory extends AppCompatActivity {
         });
 
         //Load menu
-        recyclercategory = (RecyclerView) findViewById(R.id.recycler_category);
-        recyclercategory.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclercategory.setLayoutManager(layoutManager);
+        recycler = (RecyclerView) findViewById(R.id.recycler_category);
+        recycler.setHasFixedSize(true);
+        recycler.setLayoutManager(new GridLayoutManager(this,2));
+        recycler.addItemDecoration(new SpacesItemDecoration(15));
 
         loadmenu();
 
@@ -117,7 +119,9 @@ public class SettingCategory extends AppCompatActivity {
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-
+                        Intent foodList=new Intent(SettingCategory.this,SettingMenu.class);
+                        foodList.putExtra("CategoryId",adapter.getRef(position).getKey());
+                        startActivity(foodList);
                     }
                 });
 
@@ -132,14 +136,13 @@ public class SettingCategory extends AppCompatActivity {
             }
         };
 
-        recyclercategory.setAdapter(adapter);
+        recycler.setAdapter(adapter);
         adapter.startListening();
     }
 
     private void showDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SettingCategory.this);
         alertDialog.setTitle("Add new Category");
-        alertDialog.setMessage("Please fill full information");
 
         LayoutInflater inflater = this.getLayoutInflater();
         View add_new_category = inflater.inflate(R.layout.add_new_category, null);

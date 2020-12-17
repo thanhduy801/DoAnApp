@@ -6,9 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity"
     tools:openDrawer="start"
-    android:background="@drawable/bgr">
+    tools:context=".MainActivity"
+    android:background="@drawable/bgrroom">
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -21,34 +21,204 @@
         app:itemTextColor="@android:color/white"
         app:itemIconTint="@android:color/white" />
 
-        <RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="40dp"
+            android:background="@drawable/color_toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:background="@drawable/botron"
+                android:elevation="8dp"
+                android:layout_below="@id/toolbar"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="55dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:text="Home Food"/>
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_width="30dp"
+                    android:src="@drawable/search_icon" />
+
+            </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp">
+
+          <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="#FFa500"
-                android:minHeight="?attr/actionBarSize"
-                android:theme="?attr/actionBarTheme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_below="@+id/toolbar"
-                android:id="@+id/recycler_table"
-                android:scrollbars="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </androidx.recyclerview.widget.RecyclerView>
-
-        </RelativeLayout>
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
 
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_order"
+                        android:background="@drawable/color_icon2"
+                        android:elevation="10dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="120dp">
+
+                        <ImageView
+                            android:layout_centerInParent="true"
+                            android:layout_height="50dp"
+                            android:layout_width="50dp"
+                            android:src="@drawable/playlist" />
+
+                    </RelativeLayout>
+
+                    <TextView
+
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:text="Order"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_food"
+                        android:background="@drawable/color_icon"
+                        android:elevation="8dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="120dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/food_icon" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:textColor="@android:color/white"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:text="Setting Food"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
 
 
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_revenue"
+                        android:background="@drawable/color_icon3"
+                        android:elevation="10dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="120dp">
+
+                        <ImageView
+                            android:layout_centerInParent="true"
+                            android:layout_height="50dp"
+                            android:layout_width="50dp"
+                            android:src="@drawable/add" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:textColor="@android:color/white"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:text="Revenue"
+                        android:textAlignment="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/layout_profile"
+                        android:background="@drawable/color_icon4"
+                        android:elevation="8dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="120dp">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/profile_icon" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:textColor="@android:color/white"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:text="Profile"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,40 +15,75 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appquanli12.Interface.ItemClickListener;
-import com.example.appquanli12.Model.Table;
-import com.example.appquanli12.ViewHolder.MenuViewHolder;
+import com.example.appquanli12.Model.Category;
+import com.example.appquanli12.ViewHolder.CategoryViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.navigation.NavigationView;
+import com.google.common.collect.Table;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     androidx.appcompat.widget.Toolbar toolbar;
 
-    FirebaseDatabase database;
-    DatabaseReference table;
-
-    RecyclerView recycler_menu;
-    RecyclerView.LayoutManager layoutManager;
-
+    RelativeLayout layout_order, layout_food,layout_profile,layout_revenue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //anhsa
+        layout_food=(RelativeLayout)findViewById(R.id.layout_food);
+        layout_profile=(RelativeLayout)findViewById(R.id.layout_profile);
+        layout_order=(RelativeLayout)findViewById(R.id.layout_order);
+        layout_revenue=(RelativeLayout)findViewById(R.id.layout_revenue);
+
+        //bat su kien
+        layout_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent foodList=new Intent(MainActivity.this,food_category.class);
+                startActivity(foodList);
+            }
+        });
+        layout_food.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent foodList=new Intent(MainActivity.this,SettingCategory.class);
+                startActivity(foodList);
+            }
+        });
+        layout_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent foodList=new Intent(MainActivity.this,Profile.class);
+                startActivity(foodList);
+            }
+        });
+        layout_revenue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(MainActivity.this, "Duy Vo", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         /*---------------------*/
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Danh sách bàn");
+        toolbar.setTitle("Home");
         /*---------------------*/
         setSupportActionBar(toolbar);
         /*---------------------*/
@@ -58,53 +94,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-
         navigationView.setCheckedItem(R.id.nav_home);
 
-        //Init Firebase
-        database = FirebaseDatabase.getInstance();
-        table = database.getReference("Table");
-
-        //Load menu
-        recycler_menu = (RecyclerView) findViewById(R.id.recycler_table);
-        recycler_menu.setHasFixedSize(true);
-        recycler_menu.setLayoutManager(new GridLayoutManager(this,3));
-
-        FirebaseRecyclerOptions<Table> options= new FirebaseRecyclerOptions.Builder<Table>().setQuery(table,Table.class).build();
-
-            FirebaseRecyclerAdapter<Table, MenuViewHolder> adapter = new FirebaseRecyclerAdapter<Table, MenuViewHolder>(options) {
-                @Override
-                protected void onBindViewHolder(@NonNull MenuViewHolder holder, int position, @NonNull Table model) {
-
-                    holder.txtMenuName.setText(model.getName());
-                    final Table clickItem = model;
-                    holder.setItemClickListener(new ItemClickListener() {
-                        @Override
-                        public void onClick(View view, int position, boolean isLongClick) {
-
-                            //
-                            startActivity(new Intent(getApplicationContext(),food_category.class));
-                        }
-                    });
-                }
-
-                @NonNull
-                @Override
-                public MenuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-                    View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item,parent, false);
-                    MenuViewHolder viewHolder=  new MenuViewHolder(view);
-                    return viewHolder;
-                }
-            };
-
-        recycler_menu.setAdapter(adapter);
-        adapter.startListening();
 
 
-        }
+    }
 
-
+//button meu mang hinh trai
     @Override
     public void onBackPressed(){
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
@@ -127,6 +123,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
 
+            case R.id.nav_list_danhthu:
+
+                break;
+
             case R.id.nav_profile:
                 Intent intent1 = new Intent(MainActivity.this,Profile.class);
                 startActivity(intent1);
@@ -138,8 +138,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
 
-
-            case R.id.nav_share: Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show(); break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
 

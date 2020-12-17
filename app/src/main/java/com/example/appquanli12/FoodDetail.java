@@ -2,9 +2,12 @@ package com.example.appquanli12;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,9 +27,8 @@ import com.squareup.picasso.Picasso;
 
 public class FoodDetail extends AppCompatActivity {
     TextView food_name,food_price;
-    ImageView food_image;
-    CollapsingToolbarLayout collapsingToolbarLayout;
-    FloatingActionButton btnCart;
+    ImageView food_image,shopping;
+    Button btnCart;
     ElegantNumberButton numberButton;
 
     String foodId="";
@@ -40,6 +42,21 @@ public class FoodDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail);
 
+        shopping=(ImageView)findViewById(R.id.imageView2);
+        shopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent cartIntent= new Intent(FoodDetail.this,Cart.class);
+                startActivity(cartIntent);
+            }
+        });
+
+        //toolbar
+        Toolbar toolbar=findViewById(R.id.toolbar_food_detail);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Danh sách món ăn");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         //Firebase
 
         database=FirebaseDatabase.getInstance();
@@ -48,7 +65,7 @@ public class FoodDetail extends AppCompatActivity {
 
         //Init view
         numberButton=(ElegantNumberButton)findViewById(R.id.number_button);
-        btnCart=(FloatingActionButton)findViewById(R.id.btnCart);
+        btnCart=(Button) findViewById(R.id.btnCart);
 
         final Database helper=new Database(this);
         btnCart.setOnClickListener(new View.OnClickListener() {
@@ -70,10 +87,6 @@ public class FoodDetail extends AppCompatActivity {
         food_price=(TextView)findViewById(R.id.food_price);
         food_image=(ImageView)findViewById(R.id.img_food);
 
-        collapsingToolbarLayout=(CollapsingToolbarLayout)findViewById(R.id.collapsing);
-        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);
-        collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppbar);
-
         //Get Food id from Intent
         if(getIntent()!= null)
             foodId=getIntent().getStringExtra("FoodId");
@@ -91,8 +104,7 @@ public class FoodDetail extends AppCompatActivity {
 
                 currentFood=snapshot.getValue(Food.class);
                 //set image
-                Picasso.with(getBaseContext()).load(currentFood.getImg()).into(food_image);
-                collapsingToolbarLayout.setTitle(currentFood.getName());
+                //Picasso.with(getBaseContext()).load(currentFood.getImg()).into(food_image);
                 food_price.setText(currentFood.getPrice());
                 food_name.setText(currentFood.getName());
 

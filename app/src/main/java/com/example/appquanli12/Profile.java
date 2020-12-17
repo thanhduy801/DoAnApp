@@ -3,6 +3,7 @@ package com.example.appquanli12;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -34,7 +35,7 @@ import javax.annotation.Nullable;
 public class Profile extends AppCompatActivity {
 
     private static final int GALLERY_INTENT_CODE = 1023 ;
-    TextView fullName,email,phone,verifyMsg;
+    TextView fullName,email,phone,verifyMsg,txt_change1,txt_change2,txt_change3;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userId;
@@ -49,13 +50,44 @@ public class Profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        Toolbar toolbar=findViewById(R.id.toolbar_food);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Danh sách món ăn");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         phone = findViewById(R.id.profilePhone);
         fullName = findViewById(R.id.profileName);
         email    = findViewById(R.id.profileEmail);
         resetPassLocal = findViewById(R.id.resetPasswordLocal);
 
         profileImage = findViewById(R.id.profileImage);
-        changeProfileImage = findViewById(R.id.changeProfile);
+        //changeProfileImage = findViewById(R.id.changeProfile);
+        txt_change1 = findViewById(R.id.txt_change1);
+        txt_change2 = findViewById(R.id.txt_change2);
+        txt_change3 = findViewById(R.id.txt_change3);
+
+        txt_change1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeprofile(view);
+            }
+        });
+
+        txt_change2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeprofile(view);
+            }
+        });
+        txt_change3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeprofile(view);
+            }
+        });
+
+
 
 
         fAuth = FirebaseAuth.getInstance();
@@ -70,14 +102,14 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        resendCode = findViewById(R.id.resendCode);
-        verifyMsg = findViewById(R.id.verifyMsg);
+        /*resendCode = findViewById(R.id.resendCode);
+        verifyMsg = findViewById(R.id.verifyMsg);*/
 
 
         userId = fAuth.getCurrentUser().getUid();
         user = fAuth.getCurrentUser();
 
-        if(!user.isEmailVerified()){
+       /* if(!user.isEmailVerified()){
             verifyMsg.setVisibility(View.VISIBLE);
             resendCode.setVisibility(View.VISIBLE);
 
@@ -98,7 +130,7 @@ public class Profile extends AppCompatActivity {
                     });
                 }
             });
-        }
+        }*/
 
 
 
@@ -161,7 +193,7 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        changeProfileImage.setOnClickListener(new View.OnClickListener() {
+       /*changeProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // open gallery
@@ -171,7 +203,7 @@ public class Profile extends AppCompatActivity {
                 i.putExtra("phone",phone.getText().toString());
                 startActivity(i);
             }
-        });
+        });*/
 
 
     }
@@ -181,5 +213,11 @@ public class Profile extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),Login.class));
         finish();
     }
-
+    public void changeprofile(View v){
+        Intent i = new Intent(v.getContext(),EditProfile.class);
+        i.putExtra("fullName",fullName.getText().toString());
+        i.putExtra("email",email.getText().toString());
+        i.putExtra("phone",phone.getText().toString());
+        startActivity(i);
+    }
 }

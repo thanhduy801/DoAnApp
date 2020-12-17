@@ -55,5 +55,8 @@ dependencies {
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
 
+    //banner
+    implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+
 
 }

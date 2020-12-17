@@ -11,10 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditProfile"></activity>
-        <activity android:name=".Profile" />
-        <activity android:name=".Cart" />
-        <activity android:name=".FoodDetail" />
+        <activity android:name=".SettingMenu"
+                android:parentActivityName=".SettingCategory"></activity>
+        <activity android:name=".EditProfile"
+            android:parentActivityName=".Profile"/>
+        <activity android:name=".Profile"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Cart"
+            android:parentActivityName=".food_category"/>
+        <activity android:name=".FoodDetail"
+            android:parentActivityName=".food_category"/>
         <activity
             android:name=".SettingCategory"
             android:parentActivityName=".MainActivity" />

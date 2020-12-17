@@ -1,6 +1,7 @@
 package com.example.appquanli12;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,9 +52,11 @@ public class Cart extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
-        //time
-
-
+        //back toolbar
+        Toolbar toolbar=findViewById(R.id.toolbar_cart);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Danh mục món ăn");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
       database=FirebaseDatabase.getInstance();
@@ -110,6 +113,5 @@ public class Cart extends AppCompatActivity {
         year = String.valueOf(y);
         month = String.valueOf(m);
         day = String.valueOf(d);
-
     }
 }
