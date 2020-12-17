@@ -57,7 +57,7 @@ public class food_category extends AppCompatActivity {
         //back toolbar
         Toolbar toolbar=findViewById(R.id.toolbar_category);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Danh mục món ăn");
+        getSupportActionBar().setTitle("Lựa chọn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton fab2 =(FloatingActionButton)findViewById(R.id.fab2);

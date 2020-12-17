@@ -54,7 +54,7 @@ public class FoodDetail extends AppCompatActivity {
         //toolbar
         Toolbar toolbar=findViewById(R.id.toolbar_food_detail);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Danh sách món ăn");
+        getSupportActionBar().setTitle("Chi tiết");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Firebase

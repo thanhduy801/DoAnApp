@@ -47,7 +47,7 @@ public class EditProfile extends AppCompatActivity {
 
         Toolbar toolbar=findViewById(R.id.toolbar_change);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Danh sách món ăn");
+        getSupportActionBar().setTitle("Chỉnh sửa thông tin");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent data = getIntent();

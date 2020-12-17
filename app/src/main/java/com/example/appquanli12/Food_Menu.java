@@ -85,7 +85,7 @@ public class Food_Menu extends AppCompatActivity {
 
         Toolbar toolbar=findViewById(R.id.toolbar_food);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Danh sách món ăn");
+        getSupportActionBar().setTitle("Món ăn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //Init Firebase

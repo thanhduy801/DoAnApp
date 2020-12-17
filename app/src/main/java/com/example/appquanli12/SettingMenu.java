@@ -69,7 +69,7 @@ public class SettingMenu extends AppCompatActivity {
 
         Toolbar toolbar=findViewById(R.id.toolbar_food);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Danh sách món ăn");
+        getSupportActionBar().setTitle("Chỉnh sửa món ăn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         db = FirebaseDatabase.getInstance();

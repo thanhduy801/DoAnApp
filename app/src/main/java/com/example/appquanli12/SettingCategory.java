@@ -75,7 +75,7 @@ public class SettingCategory extends AppCompatActivity {
         //back toolbar
         Toolbar toolbar = findViewById(R.id.toolbar_category);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Danh mục món ăn");
+        getSupportActionBar().setTitle("Chỉnh sửa lựa chọn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 

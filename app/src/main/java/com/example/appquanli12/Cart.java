@@ -55,7 +55,7 @@ public class Cart extends AppCompatActivity {
         //back toolbar
         Toolbar toolbar=findViewById(R.id.toolbar_cart);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Danh mục món ăn");
+        getSupportActionBar().setTitle("Đặt món ăn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
