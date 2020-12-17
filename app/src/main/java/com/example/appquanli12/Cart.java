@@ -42,7 +42,8 @@ public class Cart extends AppCompatActivity {
 
     List<Order> cart=new ArrayList<>();
     CartAdapter adapter;
-
+    int tien;
+    int doanhthu[];
     //time
 
 
@@ -112,4 +113,21 @@ public class Cart extends AppCompatActivity {
         day = String.valueOf(d);
 
     }
+  /*  private void Doanhthu()
+    {
+        Calendar c = Calendar.getInstance();
+        int y = c.get(Calendar.YEAR);
+        int m = c.get(Calendar.MONTH);
+        int d = c.get(Calendar.DATE);
+        String y1 = getString(y);
+        String m1 = getString(m);
+        String d1 = getString(d);
+        timeday();
+    for (int i=1; i<=12 ; i++)
+    {
+        if ((y1==year) && (m == i)&&(d1 == day)) {doanhthu[i] +=tien;
+    }
+
+    }
+}*/
 }
