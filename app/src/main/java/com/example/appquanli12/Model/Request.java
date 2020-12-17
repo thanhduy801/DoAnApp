@@ -4,14 +4,19 @@ import java.util.List;
 
 public class Request {
     private String total;
+    private String date;
     private List<Order> foods;
 
     public Request() {
     }
 
-    public Request(String total, List<Order> foods) {
+    public Request(String total, String date, List<Order> foods) {
         this.total = total;
+        this.date = date;
         this.foods = foods;
+    }
+
+    public Request(String total, List<Order> cart, String toString) {
     }
 
     public String getTotal() {
@@ -20,6 +25,14 @@ public class Request {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public List<Order> getFoods() {

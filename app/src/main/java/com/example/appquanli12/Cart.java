@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,30 +24,31 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.sql.Time;
+import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 public class Cart extends AppCompatActivity {
+    private static DateFormat simpleDate;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
     FirebaseDatabase database;
     DatabaseReference reference;
 
-    TextView txtTotalPrice;
+    TextView txtTotalPrice,datetime;
     Button btnPlace;
-
-    String year,month,day;
 
     List<Order> cart=new ArrayList<>();
     CartAdapter adapter;
 
+
     //time
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +57,7 @@ public class Cart extends AppCompatActivity {
         //back toolbar
         Toolbar toolbar=findViewById(R.id.toolbar_cart);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Đặt món ăn");
+        getSupportActionBar().setTitle("Đặt món ");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -68,13 +70,16 @@ public class Cart extends AppCompatActivity {
       recyclerView.setLayoutManager(layoutManager);
 
       txtTotalPrice=(TextView)findViewById(R.id.total);
+      datetime=(TextView)findViewById(R.id.date);
       btnPlace=(Button)findViewById(R.id.btnPlaceOrder);
 
       btnPlace.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
+
               Request request=new Request(
                       txtTotalPrice.getText().toString(),
+                      datetime.getText().toString(),
                       cart
               );
               reference.child(String.valueOf(System.currentTimeMillis()))
@@ -87,6 +92,7 @@ public class Cart extends AppCompatActivity {
       });
       
       loadListFood();
+
     }
 
     private void loadListFood() {
@@ -99,19 +105,17 @@ public class Cart extends AppCompatActivity {
             total+=(Integer.parseInt(order.getPrice()))*(Integer.parseInt(order.getQuantity()));
         Locale locale=new Locale("en","US");
         NumberFormat fmt =NumberFormat.getCurrencyInstance(locale);
+        String s=String.valueOf(total);
+        txtTotalPrice.setText(s);
 
-        txtTotalPrice.setText(fmt.format(total));
+        /*Calendar c = Calendar.getInstance();
+        int date = c.get(Calendar.MONTH);
+        String a=String.valueOf(date);
+        datetime.setText(a);*/
+
+        DateFormat df = new SimpleDateFormat("yyyyMMdd");
+        String strDate = df.format(new Date());
+        datetime.setText(strDate);
     }
-
-    private void timeday(){
-
-        Calendar c = Calendar.getInstance();
-        int y = c.get(Calendar.YEAR);
-        int m = c.get(Calendar.MONTH);
-        int d = c.get(Calendar.DATE);
-
-        year = String.valueOf(y);
-        month = String.valueOf(m);
-        day = String.valueOf(d);
-    }
+   
 }
