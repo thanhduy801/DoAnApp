@@ -97,7 +97,7 @@ public class Cart extends AppCompatActivity {
               reference.child(String.valueOf(System.currentTimeMillis()))
                       .setValue(request);
               new Database(getBaseContext()).cleanCart();
-              Toast.makeText(Cart.this, "Thank you. Order placed", Toast.LENGTH_SHORT).show();
+              Toast.makeText(Cart.this, "Đã thanh toán.", Toast.LENGTH_SHORT).show();
               finish();
 
           }

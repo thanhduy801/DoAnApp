@@ -158,11 +158,11 @@ public class Profile extends AppCompatActivity {
                 final EditText resetPassword = new EditText(v.getContext());
 
                 final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
-                passwordResetDialog.setTitle("Reset Password ?");
-                passwordResetDialog.setMessage("Enter New Password > 6 Characters long.");
+                passwordResetDialog.setTitle("Đặt lại mật.");
+                passwordResetDialog.setMessage("Mật khẩu có độ dài >6 kí tự.");
                 passwordResetDialog.setView(resetPassword);
 
-                passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // extract the email and send reset link
@@ -170,18 +170,18 @@ public class Profile extends AppCompatActivity {
                         user.updatePassword(newPassword).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Toast.makeText(Profile.this, "Password Reset Successfully.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Profile.this, "Mật khẩu đã đặt lại.", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Profile.this, "Password Reset Failed.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Profile.this, "Đã xảy ra lỗi.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
                 });
 
-                passwordResetDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                passwordResetDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // close

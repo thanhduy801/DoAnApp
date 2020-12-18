@@ -60,7 +60,7 @@ public class Food_Menu extends AppCompatActivity {
     List<String> suggestList =new ArrayList<>();
     MaterialSearchBar materialSearchBar;
 
-    ImageView btn_add_food,imageView3;
+    ImageView imageView3;
 
     //banner
     private static ViewPager mPager;
@@ -77,7 +77,8 @@ public class Food_Menu extends AppCompatActivity {
         //banner
         init();
 
-        btn_add_food=(ImageView)findViewById(R.id.btn_add_food);
+        //btn_add_food=(ImageView)findViewById(R.id.btn_add_food);
+
         imageView3=(ImageView)findViewById(R.id.imageView3);
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,14 +169,25 @@ public class Food_Menu extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        if(adapter!=null){
+            adapter.startListening();
+        }
+    }
+
     private void startSearch(CharSequence text) {
         FirebaseRecyclerOptions<Food> options= new FirebaseRecyclerOptions.Builder<Food>().setQuery(foods.orderByChild("Name").equalTo(text.toString()),Food.class).build();
         searchAdapter=new FirebaseRecyclerAdapter<Food, FoodViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull FoodViewHolder holder, int position, @NonNull Food model) {
+            protected void onBindViewHolder(@NonNull FoodViewHolder holder, final int position, @NonNull final Food model) {
                 holder.txtFoodName.setText(model.getName());
                 holder.txtFoodMoney.setText(model.getPrice()+"đ");
                 Picasso.with(getBaseContext()).load(model.getImg()).into(holder.imgfood);
+
                 final Food clickItem = model;
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
@@ -219,10 +231,30 @@ public class Food_Menu extends AppCompatActivity {
         FirebaseRecyclerOptions<Food> options= new FirebaseRecyclerOptions.Builder<Food>().setQuery(foods.orderByChild("menuId").equalTo(categoryId),Food.class).build();
         adapter=new FirebaseRecyclerAdapter<Food, FoodViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull FoodViewHolder holder, int position, @NonNull Food model) {
+            protected void onBindViewHolder(@NonNull FoodViewHolder holder, final int position, @NonNull final Food model) {
                 holder.txtFoodName.setText(model.getName());
                 holder.txtFoodMoney.setText(model.getPrice()+" đ");
                 Picasso.with(getBaseContext()).load(model.getImg()).into(holder.imgfood);
+
+                //quick cart
+                holder.quick_cart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        new Database(getBaseContext()).addToCart(new Order(
+                                adapter.getRef(position).getKey(),
+                                model.getName(),
+                                "1",
+                                model.getPrice(),
+                                model.getDiscount()
+
+                        ));
+                        Toast.makeText(Food_Menu.this, "Đã thêm món.", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
                 final Food clickItem = model;
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override

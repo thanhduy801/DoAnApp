@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.andremion.counterfab.CounterFab;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.appquanli12.Database.Database;
 import com.example.appquanli12.Model.Food;
@@ -27,7 +28,8 @@ import com.squareup.picasso.Picasso;
 
 public class FoodDetail extends AppCompatActivity {
     TextView food_name,food_price;
-    ImageView food_image,shopping;
+    ImageView food_image,imageView7;
+    CounterFab shopping;
     Button btnCart;
     ElegantNumberButton numberButton;
 
@@ -42,7 +44,7 @@ public class FoodDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_detail);
 
-        shopping=(ImageView)findViewById(R.id.imageView2);
+        shopping=(CounterFab)findViewById(R.id.imageView2);
         shopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,16 +64,25 @@ public class FoodDetail extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         foods=database.getReference("Foods");
 
+        imageView7=(ImageView) findViewById(R.id.imageView7);
+        imageView7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(FoodDetail.this, "Đã yêu thích!!!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
 
         //Init view
         numberButton=(ElegantNumberButton)findViewById(R.id.number_button);
         btnCart=(Button) findViewById(R.id.btnCart);
 
-        final Database helper=new Database(this);
+        //final Database helper=new Database(this);
         btnCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                helper.addToCart(new Order(
+                new Database(getBaseContext()).addToCart(new Order(
                         foodId,
                         currentFood.getName(),
                         numberButton.getNumber(),
@@ -79,9 +90,12 @@ public class FoodDetail extends AppCompatActivity {
                         currentFood.getDiscount()
 
                 ));
-                Toast.makeText(FoodDetail.this, "Added to Cart", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FoodDetail.this, "Đã thêm món.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        shopping.setCount(new Database(this).getCountCart());
+
 
         food_name=(TextView)findViewById(R.id.food_name);
         food_price=(TextView)findViewById(R.id.food_price);

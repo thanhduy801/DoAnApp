@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:text="Total:"
+                    android:text="Giá:"
                     android:textSize="20sp"
                     android:textColor="@android:color/white"
                     android:layout_width="wrap_content"
@@ -75,7 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:text="Date:"
+                    android:text="Ngày:"
                     android:textSize="18sp"
                     android:layout_marginLeft="30dp"
                     android:textColor="@android:color/white"
@@ -94,7 +94,7 @@
 
             <Button
                 android:id="@+id/btnPlaceOrder"
-                android:text="Place Order"
+                android:text="THANH TOÁN"
                 android:textColor="@android:color/white"
                 android:background="@drawable/color_toolbar"
                 android:layout_marginRight="8dp"

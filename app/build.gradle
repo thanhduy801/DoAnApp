@@ -57,6 +57,8 @@ dependencies {
 
     //banner
     implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+    //nut so luong
+    implementation 'com.github.andremion:counterfab:1.0.1'
 
 
 }

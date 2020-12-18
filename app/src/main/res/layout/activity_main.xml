@@ -109,7 +109,7 @@
                         android:gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:text="Order"
+                        android:text="Đặt món"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"/>
                 </LinearLayout>
@@ -139,7 +139,7 @@
                         android:gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:text="Setting Food"
+                        android:text="Chỉnh sửa"
                         android:textAlignment="center" />
 
                 </LinearLayout>
@@ -182,7 +182,7 @@
                         android:gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:text="Revenue"
+                        android:text="Hoá đơn"
                         android:textAlignment="center" />
                 </LinearLayout>
                 <LinearLayout
@@ -211,7 +211,7 @@
                         android:gravity="center_horizontal"
                         android:layout_height="wrap_content"
                         android:layout_width="match_parent"
-                        android:text="Profile"
+                        android:text="Thông tin"
                         android:textAlignment="center" />
 
                 </LinearLayout>

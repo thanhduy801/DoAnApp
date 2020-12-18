@@ -142,7 +142,7 @@ public class SettingCategory extends AppCompatActivity {
 
     private void showDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SettingCategory.this);
-        alertDialog.setTitle("Add new Category");
+        alertDialog.setTitle("Thêm lựa chọn ?");
 
         LayoutInflater inflater = this.getLayoutInflater();
         View add_new_category = inflater.inflate(R.layout.add_new_category, null);
@@ -170,7 +170,7 @@ public class SettingCategory extends AppCompatActivity {
         alertDialog.setIcon(R.drawable.add);
 
         //set button
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -182,7 +182,7 @@ public class SettingCategory extends AppCompatActivity {
 
             }
         });
-        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -195,7 +195,7 @@ public class SettingCategory extends AppCompatActivity {
 
         if (saveUri != null) {
             final ProgressDialog mDialog = new ProgressDialog(this);
-            mDialog.setMessage("Uploading...");
+            mDialog.setMessage("Đang tải ...");
             mDialog.show();
 
             String imageName = UUID.randomUUID().toString();
@@ -204,7 +204,7 @@ public class SettingCategory extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mDialog.dismiss();
-                    Toast.makeText(SettingCategory.this, "Uploader !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingCategory.this, "Đã xong !!!", Toast.LENGTH_SHORT).show();
                     imageFoder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -225,7 +225,7 @@ public class SettingCategory extends AppCompatActivity {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                             double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                            mDialog.setMessage(("Uploaded " + progress + "%"));
+                            mDialog.setMessage(("Đang tải " + progress + "%"));
                         }
                     });
         }
@@ -237,7 +237,7 @@ public class SettingCategory extends AppCompatActivity {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             saveUri = data.getData();
-            btnSelect.setText("Image Select !");
+            btnSelect.setText("Đã chọn hình !");
         }
     }
 
@@ -245,7 +245,7 @@ public class SettingCategory extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "Chọn hình"), PICK_IMAGE_REQUEST);
     }
 
     //Update /Delete
@@ -264,13 +264,13 @@ public class SettingCategory extends AppCompatActivity {
 
     private void deleteCategory(String key) {
         category.child(key).removeValue();
-        Toast.makeText(this,"Item delete !!!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Đã xoá !!!",Toast.LENGTH_SHORT).show();
     }
 
     private void showUpdateDialog(final String key, final Category item) {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SettingCategory.this);
-        alertDialog.setTitle("Update Category");
-        alertDialog.setMessage("Please fill full information");
+        alertDialog.setTitle("Cập nhập lựa chọn");
+        alertDialog.setMessage("Điền đầy đủ thông tin.");
 
         LayoutInflater inflater = this.getLayoutInflater();
         View add_new_category = inflater.inflate(R.layout.add_new_category, null);
@@ -301,7 +301,7 @@ public class SettingCategory extends AppCompatActivity {
         alertDialog.setIcon(R.drawable.add);
 
         //set button
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -311,7 +311,7 @@ public class SettingCategory extends AppCompatActivity {
 
             }
         });
-        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -324,7 +324,7 @@ public class SettingCategory extends AppCompatActivity {
 
         if (saveUri != null) {
             final ProgressDialog mDialog = new ProgressDialog(this);
-            mDialog.setMessage("Uploading...");
+            mDialog.setMessage("Đang tải ...");
             mDialog.show();
 
             String imageName = UUID.randomUUID().toString();
@@ -333,7 +333,7 @@ public class SettingCategory extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mDialog.dismiss();
-                    Toast.makeText(SettingCategory.this, "Uploader !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingCategory.this, "Đã xong !!!", Toast.LENGTH_SHORT).show();
                     imageFoder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -354,7 +354,7 @@ public class SettingCategory extends AppCompatActivity {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                             double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                            mDialog.setMessage(("Uploaded " + progress + "%"));
+                            mDialog.setMessage(("Đang tải " + progress + "%"));
                         }
                     });
         }

@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.andremion.counterfab.CounterFab;
+import com.example.appquanli12.Database.Database;
 import com.example.appquanli12.Interface.ItemClickListener;
 import com.example.appquanli12.Model.Category;
 import com.example.appquanli12.Model.SpacesItemDecoration;
@@ -40,6 +42,8 @@ public class food_category extends AppCompatActivity {
 
     RecyclerView recyclercategory;
 
+    CounterFab fab2;
+
     FirebaseRecyclerAdapter<Category, CategoryViewHolder> adapter;
 
     //banner
@@ -60,7 +64,7 @@ public class food_category extends AppCompatActivity {
         getSupportActionBar().setTitle("Lựa chọn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        FloatingActionButton fab2 =(FloatingActionButton)findViewById(R.id.fab2);
+        fab2 =(CounterFab) findViewById(R.id.fab2);
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,6 +72,8 @@ public class food_category extends AppCompatActivity {
                 startActivity(cartIntent);
             }
         });
+
+        fab2.setCount(new Database(this).getCountCart());
 
 
         //Init Firebase
@@ -153,5 +159,13 @@ public class food_category extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        fab2.setCount(new Database(this).getCountCart());
 
+        if (adapter!=null){
+            adapter.startListening();
+        }
+    }
 }

@@ -102,7 +102,7 @@ public class SettingMenu extends AppCompatActivity {
     }
     private void showAddFoodDialog() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(SettingMenu.this);
-        alertDialog.setTitle("Add new Food");
+        alertDialog.setTitle("Thêm món ăn mới.");
 
         LayoutInflater inflater = this.getLayoutInflater();
         View add_new_category = inflater.inflate(R.layout.add_new_foodmenu, null);
@@ -133,7 +133,7 @@ public class SettingMenu extends AppCompatActivity {
         alertDialog.setIcon(R.drawable.add);
 
         //set button
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        alertDialog.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -145,7 +145,7 @@ public class SettingMenu extends AppCompatActivity {
 
             }
         });
-        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        alertDialog.setNegativeButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -158,7 +158,7 @@ public class SettingMenu extends AppCompatActivity {
 
         if (saveUri != null) {
             final ProgressDialog mDialog = new ProgressDialog(this);
-            mDialog.setMessage("Uploading...");
+            mDialog.setMessage("Đang tải lên...");
             mDialog.show();
 
             String imageName = UUID.randomUUID().toString();
@@ -167,7 +167,7 @@ public class SettingMenu extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     mDialog.dismiss();
-                    Toast.makeText(SettingMenu.this, "Uploader !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingMenu.this, "Đã xong !!!", Toast.LENGTH_SHORT).show();
                     imageFoder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -193,7 +193,7 @@ public class SettingMenu extends AppCompatActivity {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
                             double progress = (100.0 * snapshot.getBytesTransferred() / snapshot.getTotalByteCount());
-                            mDialog.setMessage(("Uploaded " + progress + "%"));
+                            mDialog.setMessage(("Đang tải " + progress + "%"));
                         }
                     });
         }
@@ -242,7 +242,7 @@ public class SettingMenu extends AppCompatActivity {
         if (requestCode == Common.PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             saveUri = data.getData();
-            btnSelect.setText("Image Select !");
+            btnSelect.setText("Đã chọn hình !");
         }
     }
 }

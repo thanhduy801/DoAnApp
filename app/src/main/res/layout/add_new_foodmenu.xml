@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtName"
-            android:hint="Name"
+            android:hint="Tên món"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="34sp"
@@ -22,7 +22,7 @@
             app:met_singleLineEllipsis="true"/>
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtPrice"
-            android:hint="Price"
+            android:hint="Giá tiền"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             app:met_singleLineEllipsis="true"/>
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/edtDiscount"
-            android:hint="Discount"
+            android:hint="Giảm giá"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,7 +66,7 @@
                         android:layout_margin="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:text="SELECT"
+                        android:text="CHỌN HÌNH"
                         android:id="@+id/btnSelect"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -82,7 +82,7 @@
                         android:layout_margin="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
-                        android:text="UPLOAD"
+                        android:text="TẢI HÌNH"
                         android:id="@+id/btnUpload"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
