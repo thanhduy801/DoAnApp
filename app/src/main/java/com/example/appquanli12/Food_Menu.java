@@ -61,7 +61,6 @@ public class Food_Menu extends AppCompatActivity {
     MaterialSearchBar materialSearchBar;
 
     ImageView btn_add_food,imageView3;
-    String foodId="";
 
     //banner
     private static ViewPager mPager;
@@ -170,7 +169,7 @@ public class Food_Menu extends AppCompatActivity {
     }
 
     private void startSearch(CharSequence text) {
-        FirebaseRecyclerOptions<Food> options= new FirebaseRecyclerOptions.Builder<Food>().setQuery(foods.orderByChild("name").equalTo(text.toString()),Food.class).build();
+        FirebaseRecyclerOptions<Food> options= new FirebaseRecyclerOptions.Builder<Food>().setQuery(foods.orderByChild("Name").equalTo(text.toString()),Food.class).build();
         searchAdapter=new FirebaseRecyclerAdapter<Food, FoodViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull FoodViewHolder holder, int position, @NonNull Food model) {

@@ -98,7 +98,7 @@ public class Cart extends AppCompatActivity {
                       .setValue(request);
               new Database(getBaseContext()).cleanCart();
               Toast.makeText(Cart.this, "Thank you. Order placed", Toast.LENGTH_SHORT).show();
-              //finish();
+              finish();
 
           }
       });

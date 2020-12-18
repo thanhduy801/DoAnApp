@@ -34,14 +34,16 @@
     <com.mancj.materialsearchbar.MaterialSearchBar
         android:layout_below="@+id/toolbar_food"
         app:mt_hint="Enter your food"
+        app:mt_speechMode="false"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:id="@+id/searchBar"
         android:background="@drawable/shapebgsearch"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
         android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"/>
+        android:layout_marginLeft="8dp"
+        app:mt_maxSuggestionsCount="5"/>
     <androidx.viewpager.widget.ViewPager
         android:layout_below="@+id/searchBar"
         android:id="@+id/pager"
