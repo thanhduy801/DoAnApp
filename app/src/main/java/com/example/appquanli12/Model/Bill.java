@@ -1,15 +1,26 @@
 package com.example.appquanli12.Model;
 
 public class Bill {
+
+    String billId;
     String date;
     String total;
 
     public Bill() {
     }
 
-    public Bill(String date, String total) {
+    public Bill(String billId, String date, String total) {
+        this.billId = billId;
         this.date = date;
         this.total = total;
+    }
+
+    public String getBillId() {
+        return billId;
+    }
+
+    public void setBillId(String billId) {
+        this.billId = billId;
     }
 
     public String getDate() {

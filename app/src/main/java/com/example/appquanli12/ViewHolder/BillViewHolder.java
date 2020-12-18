@@ -17,11 +17,12 @@ public class BillViewHolder extends RecyclerView.ViewHolder implements
         View.OnCreateContextMenuListener
 {
 
-    public TextView txtDate, txtTotal;
+    public TextView txtbillid ,txtDate, txtTotal;
     private ItemClickListener itemClickListener;
 
     public BillViewHolder(@NonNull View itemView) {
         super(itemView);
+        txtbillid =(TextView)itemView.findViewById(R.id.txtidbill);
         txtDate =(TextView)itemView.findViewById(R.id.txtDate);
         txtTotal =(TextView) itemView.findViewById(R.id.txtTotal);
 

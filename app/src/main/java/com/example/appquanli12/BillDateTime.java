@@ -75,6 +75,7 @@ public class BillDateTime extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Bill, BillViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull BillViewHolder holder, int position, @NonNull Bill model) {
+                holder.txtbillid.setText(adapter.getRef(position).getKey());
                 holder.txtDate.setText(model.getDate());
                 holder.txtTotal.setText(model.getTotal());
                 final Bill clickItem = model;

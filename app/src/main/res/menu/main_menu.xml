@@ -20,7 +20,7 @@
 
             android:id="@+id/nav_list_danhthu"
             android:icon="@drawable/money"
-            android:title="Quản lý danh thu" />
+            android:title="Quản lý hoá đơn" />
 
 
     </group>
