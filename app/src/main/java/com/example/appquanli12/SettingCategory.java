@@ -63,7 +63,7 @@ public class SettingCategory extends AppCompatActivity {
     Uri saveUri;
 
     DrawerLayout drawer;
-    private final int PICK_IMAGE_REQUEST = 71;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +117,9 @@ public class SettingCategory extends AppCompatActivity {
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
+                        Intent foodList=new Intent(SettingCategory.this,SettingMenu.class);
+                        foodList.putExtra("CategoryId",adapter.getRef(position).getKey());
+                        startActivity(foodList);
 
                     }
                 });
@@ -231,7 +234,7 @@ public class SettingCategory extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
+        if (requestCode == Common.PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             saveUri = data.getData();
             btnSelect.setText("Image Select !");
@@ -242,7 +245,7 @@ public class SettingCategory extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), Common.PICK_IMAGE_REQUEST);
     }
 
     //Update /Delete
