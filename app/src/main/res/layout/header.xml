@@ -6,7 +6,7 @@
     android:layout_height="200dp"
     android:orientation="vertical"
     android:gravity="bottom"
-    android:background="@color/searchBarPlaceholderColor">
+    android:background="@drawable/color">
 
 
     <TextView
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Home Food"
         android:textSize="30sp"
-        android:textColor="@android:color/white"
+        android:textColor="@color/white"
         app:fontFamily="@font/wendy_one" />
 
 </LinearLayout>

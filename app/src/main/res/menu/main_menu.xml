@@ -9,7 +9,7 @@
         <item
 
             android:id="@+id/nav_list_food"
-            android:icon="@drawable/home_icon"
+            android:icon="@drawable/ic_food_menu"
             android:title="Quản lý món ăn" />
 
 
@@ -25,6 +25,10 @@
                     android:id="@+id/nav_profile"
                     android:icon="@drawable/profile_icon"
                     android:title=" Quản lý Profile" />
+                <item
+                    android:id="@+id/nav_saff"
+                    android:icon="@drawable/ic_saff"
+                    android:title="Nhân viên"/>
 
                 <item
                     android:id="@+id/nav_logout"

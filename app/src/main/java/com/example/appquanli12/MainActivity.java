@@ -131,6 +131,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent1 = new Intent(MainActivity.this,Profile.class);
                 startActivity(intent1);
                 break;
+            case R.id.nav_saff:
+                Intent intent2=new Intent(MainActivity.this,SaffActivity.class);
+                startActivity(intent2);
+                break;
 
             case R.id.nav_logout:
                 FirebaseAuth.getInstance().signOut();

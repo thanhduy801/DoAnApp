@@ -8,18 +8,17 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity"
     tools:openDrawer="start"
-    android:background="@drawable/bgr">
+    >
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_gravity="start"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
-        android:background="@color/searchBarHintColor"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
-        app:itemTextColor="@android:color/white"
-        app:itemIconTint="@android:color/white" />
+        app:itemTextColor="@color/colorblu"
+        app:itemIconTint="@color/colorblu" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,7 +29,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFa500"
+                android:background="@drawable/color"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
                 app:layout_constraintEnd_toEndOf="parent"

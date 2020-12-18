@@ -28,6 +28,7 @@
                 android:textAllCaps="true"
                 android:textStyle="bold"
                 android:text="Food 01"
+                android:textColor="@color/colorblu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
@@ -37,6 +38,7 @@
                 android:textAllCaps="true"
                 android:textStyle="italic"
                 android:text="100,000"
+                android:textColor="@color/colorblu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 

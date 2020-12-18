@@ -15,10 +15,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textSize="34sp"
-    android:textColorHint="@color/colorPrimary"
-    app:met_baseColor="@color/colorPrimary"
+    android:textColorHint="@color/colorblu"
+    app:met_baseColor="@color/colorblu"
     app:met_floatingLabel="highlight"
-    app:met_primaryColor="@color/colorPrimary"
+    app:met_primaryColor="@color/colorblu"
     app:met_singleLineEllipsis="true"/>
 
         <LinearLayout
@@ -38,12 +38,13 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
                      <Button
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/color"
                         android:layout_margin="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:text="SELECT"
                         android:id="@+id/btnSelect"
+                         android:textColor="@color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
                 </LinearLayout>
@@ -54,11 +55,12 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
                     <Button
-                        android:background="@color/colorPrimary"
+                        android:background="@drawable/color"
                         android:layout_margin="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
                         android:text="UPLOAD"
+                        android:textColor="@color/white"
                         android:id="@+id/btnUpload"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>

@@ -4,7 +4,7 @@
     android:layout_width="110dp"
     android:layout_height="110dp"
     app:cardElevation="4dp"
-    android:background="@drawable/border"
+    android:background="@drawable/color"
     android:layout_margin="15dp"
     android:backgroundTint="@color/colorbgr1">
 
@@ -12,6 +12,7 @@
         android:id="@+id/menu_name"
         android:text="Name of Table"
         android:textSize="20sp"
+        android:textColor="@color/colorblu"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_width="match_parent"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Login"
     android:orientation="vertical"
-    android:background="@drawable/bgr">
+    >
 
     <TextView
         android:textStyle="bold"
@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/aclonica"
         android:text="Home Food"
-        android:textColor="#F8F8FA"
+        android:textColor="#ED1260"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +35,8 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:padding="10dp"
-        android:textColor="#040303"
-        android:textColorHint="#040303"
+        android:textColor="@color/colorblu"
+        android:textColorHint="@color/colorblu"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,16 +58,16 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:padding="10dp"
-        android:textColor="#040303"
-        android:textColorHint="#040303"
+        android:textColor="@color/colorblu"
+        android:textColorHint="@color/colorblu"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Email" />
 
         <CheckBox
-            android:buttonTint="@android:color/white"
-            android:textColor="#FFFFFF"
+            android:buttonTint="@color/colorred"
+            android:textColor="@color/colorblu"
             android:fontFamily="@font/aclonica"
             android:text="Nhớ đăng nhập ?"
             android:id="@+id/cb_login"
@@ -81,7 +81,7 @@
         <Button
             android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:background="@drawable/botronbutton"
+            android:background="@drawable/color"
             android:id="@+id/loginBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Create Account"
-        android:textColor="#FF9800"
+        android:textColor="@color/colorred"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password"
-        android:textColor="#FF9800"
+        android:textColor="@color/colorred"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"

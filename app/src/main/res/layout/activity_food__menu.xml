@@ -8,7 +8,7 @@
     android:fitsSystemWindows="true"
     tools:context=".Food_Menu"
     tools:openDrawer="start"
-    android:background="@drawable/bgr3">
+    >
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,7 +16,7 @@
         android:id="@+id/toolbar_food"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFa500"
+        android:background="@drawable/color"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,13 +26,13 @@
         android:layout_margin="5dp"
         app:mt_speechMode="false"
         android:layout_below="@+id/toolbar_food"
-        app:mt_searchIconTint="@android:color/white"
-        app:mt_textColor="@android:color/white"
-        app:mt_hintColor="@android:color/white"
+        app:mt_searchIconTint="@color/colorred"
+        app:mt_textColor="@color/colorred"
+        app:mt_hintColor="@color/colorred"
         app:mt_hint="Enter your food"
         app:mt_maxSuggestionsCount="5"
         app:mt_roundedSearchBarEnabled="true"
-        app:mt_searchBarColor="@color/searchBarHintColor"
+        app:mt_searchBarColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/searchBar" />

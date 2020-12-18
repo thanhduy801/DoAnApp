@@ -6,6 +6,9 @@
 
     <color name="colorbgr1">#A6CCD3CC</color>
     <color name="colortableitem">#FCFDFC</color>
+    <color name="colorred">#FF1161</color>
+    <color name="colororing">#FF5855</color>
+    <color name="colorblu">#27505F</color>
 
 
 </resources>
