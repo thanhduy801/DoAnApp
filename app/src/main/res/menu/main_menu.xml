@@ -34,7 +34,7 @@
                 <item
                     android:id="@+id/nav_profile"
                     android:icon="@drawable/ic_person_black_24dp"
-                    android:title=" Quản lý thông " />
+                    android:title=" Quản lý thông tin" />
 
                 <item
                     android:id="@+id/nav_logout"

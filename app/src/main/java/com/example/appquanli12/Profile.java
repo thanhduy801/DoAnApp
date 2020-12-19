@@ -158,7 +158,7 @@ public class Profile extends AppCompatActivity {
                 final EditText resetPassword = new EditText(v.getContext());
 
                 final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
-                passwordResetDialog.setTitle("Đặt lại mật.");
+                passwordResetDialog.setTitle("Đặt lại mật khẩu.");
                 passwordResetDialog.setMessage("Mật khẩu có độ dài >6 kí tự.");
                 passwordResetDialog.setView(resetPassword);
 

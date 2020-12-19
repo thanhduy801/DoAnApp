@@ -13,6 +13,7 @@ import com.example.appquanli12.Interface.ItemClickListener;
 import com.example.appquanli12.R;
 
 public class BillViewHolder extends RecyclerView.ViewHolder implements
+        View.OnLongClickListener,
         View.OnClickListener,
         View.OnCreateContextMenuListener
 {
@@ -28,6 +29,8 @@ public class BillViewHolder extends RecyclerView.ViewHolder implements
 
         itemView.setOnCreateContextMenuListener(this);
         itemView.setOnClickListener(this);
+        itemView.setOnLongClickListener(this);
+
     }
 
     public void setItemClickListener(ItemClickListener itemClickListener) {
@@ -47,6 +50,12 @@ public class BillViewHolder extends RecyclerView.ViewHolder implements
         contextMenu.add(0,0,getAdapterPosition(), Common.UPDATE);
         contextMenu.add(0,0,getAdapterPosition(), Common.DELETE);
 
+    }
+
+    @Override
+    public boolean onLongClick(View view) {
+        itemClickListener.onClick(view,getAdapterPosition(),true);
+        return true;
     }
 }
 

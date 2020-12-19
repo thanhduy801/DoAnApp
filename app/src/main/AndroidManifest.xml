@@ -11,8 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BillDateTime"
-            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".OrderDetail"
+            android:parentActivityName=".BillDateTime"></activity>
+        <activity
+            android:name=".BillDateTime"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".SettingMenu"
             android:parentActivityName=".SettingCategory" />
@@ -38,7 +41,8 @@
             android:name=".food_category"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".Register" />
-        <activity android:name=".Login"
+        <activity
+            android:name=".Login"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

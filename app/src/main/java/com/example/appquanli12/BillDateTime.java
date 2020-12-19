@@ -14,13 +14,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.appquanli12.Common.Common;
 import com.example.appquanli12.Interface.ItemClickListener;
 import com.example.appquanli12.Model.Bill;
 import com.example.appquanli12.Model.Category;
 import com.example.appquanli12.Model.Order;
+import com.example.appquanli12.Model.Request;
 import com.example.appquanli12.Model.SpacesItemDecoration;
 import com.example.appquanli12.ViewHolder.BillViewHolder;
+import com.example.appquanli12.ViewHolder.CartAdapter;
 import com.example.appquanli12.ViewHolder.CategoryViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -42,7 +46,7 @@ public class BillDateTime extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
 
-    FirebaseRecyclerAdapter<Bill, BillViewHolder> adapter;
+    FirebaseRecyclerAdapter<Request,BillViewHolder > adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,18 +75,20 @@ public class BillDateTime extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
 
-        FirebaseRecyclerOptions<Bill> options= new FirebaseRecyclerOptions.Builder<Bill>().setQuery(bill,Bill.class).build();
-        adapter = new FirebaseRecyclerAdapter<Bill, BillViewHolder>(options) {
+        FirebaseRecyclerOptions<Request> options= new FirebaseRecyclerOptions.Builder<Request>().setQuery(bill, Request.class).build();
+        adapter = new FirebaseRecyclerAdapter<Request, BillViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull BillViewHolder holder, int position, @NonNull Bill model) {
+            protected void onBindViewHolder(@NonNull BillViewHolder holder, int position, @NonNull final Request model) {
                 holder.txtbillid.setText(adapter.getRef(position).getKey());
                 holder.txtDate.setText(model.getDate());
                 holder.txtTotal.setText(model.getTotal());
-                final Bill clickItem = model;
                 holder.setItemClickListener(new ItemClickListener() {
                     @Override
                     public void onClick(View view, int position, boolean isLongClick) {
-
+                        Intent orderDetail =new Intent(BillDateTime.this,OrderDetail.class);
+                        Common.currentRequest =model;
+                        orderDetail.putExtra("OrderId",adapter.getRef(position).getKey());
+                        startActivity(orderDetail);
                     }
                 });
 

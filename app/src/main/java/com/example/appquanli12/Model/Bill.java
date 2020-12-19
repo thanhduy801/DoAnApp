@@ -5,14 +5,16 @@ public class Bill {
     String billId;
     String date;
     String total;
+    String foods;
 
     public Bill() {
     }
 
-    public Bill(String billId, String date, String total) {
+    public Bill(String billId, String date, String total, String foods) {
         this.billId = billId;
         this.date = date;
         this.total = total;
+        this.foods = foods;
     }
 
     public String getBillId() {
@@ -37,5 +39,13 @@ public class Bill {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+    public String getFoods() {
+        return foods;
+    }
+
+    public void setFoods(String foods) {
+        this.foods = foods;
     }
 }
