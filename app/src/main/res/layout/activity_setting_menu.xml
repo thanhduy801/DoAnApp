@@ -8,7 +8,8 @@
     android:fitsSystemWindows="true"
     tools:context=".SettingMenu"
     tools:openDrawer="start"
-    android:background="@drawable/bgrseting">
+    android:background="@drawable/bgrroom"
+    >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

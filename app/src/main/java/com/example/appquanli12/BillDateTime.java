@@ -3,40 +3,23 @@ package com.example.appquanli12;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.example.appquanli12.Common.Common;
 import com.example.appquanli12.Interface.ItemClickListener;
-import com.example.appquanli12.Model.Bill;
-import com.example.appquanli12.Model.Category;
-import com.example.appquanli12.Model.Order;
 import com.example.appquanli12.Model.Request;
-import com.example.appquanli12.Model.SpacesItemDecoration;
 import com.example.appquanli12.ViewHolder.BillViewHolder;
-import com.example.appquanli12.ViewHolder.CartAdapter;
-import com.example.appquanli12.ViewHolder.CategoryViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
-
-import java.text.NumberFormat;
-import java.util.Locale;
 
 public class BillDateTime extends AppCompatActivity {
 
