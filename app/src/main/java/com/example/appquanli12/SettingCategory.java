@@ -100,7 +100,7 @@ public class SettingCategory extends AppCompatActivity {
         recycler = (RecyclerView) findViewById(R.id.recycler_category);
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new GridLayoutManager(this,2));
-        recycler.addItemDecoration(new SpacesItemDecoration(15));
+        //recycler.addItemDecoration(new SpacesItemDecoration(15));
 
         loadmenu();
 

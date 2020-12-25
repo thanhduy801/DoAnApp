@@ -128,7 +128,7 @@ public class Login extends AppCompatActivity {
                 final EditText resetMail = new EditText(v.getContext());
                 final AlertDialog.Builder passwordResetDialog = new AlertDialog.Builder(v.getContext());
                 passwordResetDialog.setTitle("Đặt lại mật khẩu ?");
-                passwordResetDialog.setMessage("Nhập Email để Nhận iên kết.");
+                passwordResetDialog.setMessage("Nhập Email để nhận liên kết.");
                 passwordResetDialog.setView(resetMail);
 
                 passwordResetDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

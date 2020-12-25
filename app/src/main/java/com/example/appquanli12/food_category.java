@@ -84,7 +84,7 @@ public class food_category extends AppCompatActivity {
         recyclercategory = (RecyclerView) findViewById(R.id.recycler_category);
         recyclercategory.setHasFixedSize(true);
         recyclercategory.setLayoutManager(new GridLayoutManager(this,2));
-        recyclercategory.addItemDecoration(new SpacesItemDecoration(15));
+        //recyclercategory.addItemDecoration(new SpacesItemDecoration(15));
 
 
         //banner
