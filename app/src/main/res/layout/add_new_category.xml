@@ -54,7 +54,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
                     <Button
-                        android:background="@drawable/color_toolbar"
+                        android:background="@drawable/color_item_food"
                         android:layout_margin="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginRight="8dp"
