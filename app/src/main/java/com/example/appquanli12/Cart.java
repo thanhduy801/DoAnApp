@@ -119,11 +119,6 @@ public class Cart extends AppCompatActivity {
         NumberFormat fmt =NumberFormat.getCurrencyInstance(locale);
         txtTotalPrice.setText(fmt.format(total));
 
-        /*Calendar c = Calendar.getInstance();
-        int date = c.get(Calendar.MONTH);
-        String a=String.valueOf(date);
-        datetime.setText(a);*/
-
         DateFormat df = new SimpleDateFormat("dd:MM:yyyy");
         String strDate = df.format(new Date());
         datetime.setText(strDate);

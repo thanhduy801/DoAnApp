@@ -42,10 +42,6 @@ public class BillDateTime extends AppCompatActivity {
         getSupportActionBar().setTitle("Hoá đơn");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Chèn một kẻ ngang giữa các phần tử
-        /*DividerItemDecoration dividerHorizontal =
-                new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(dividerHorizontal);*/
 
         //Init Firebase
         database = FirebaseDatabase.getInstance();

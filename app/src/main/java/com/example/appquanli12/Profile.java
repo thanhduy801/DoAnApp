@@ -62,7 +62,6 @@ public class Profile extends AppCompatActivity {
         resetPassLocal = findViewById(R.id.resetPasswordLocal);
 
         profileImage = findViewById(R.id.profileImage);
-        //changeProfileImage = findViewById(R.id.changeProfile);
         txt_change1 = findViewById(R.id.txt_change1);
         txt_change2 = findViewById(R.id.txt_change2);
         txt_change3 = findViewById(R.id.txt_change3);
@@ -73,7 +72,6 @@ public class Profile extends AppCompatActivity {
                 changeprofile(view);
             }
         });
-
         txt_change2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,8 +86,6 @@ public class Profile extends AppCompatActivity {
         });
 
 
-
-
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -102,37 +98,8 @@ public class Profile extends AppCompatActivity {
             }
         });
 
-        /*resendCode = findViewById(R.id.resendCode);
-        verifyMsg = findViewById(R.id.verifyMsg);*/
-
-
         userId = fAuth.getCurrentUser().getUid();
         user = fAuth.getCurrentUser();
-
-       /* if(!user.isEmailVerified()){
-            verifyMsg.setVisibility(View.VISIBLE);
-            resendCode.setVisibility(View.VISIBLE);
-
-            resendCode.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(final View v) {
-
-                    user.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            Toast.makeText(v.getContext(), "Verification Email Has been Sent.", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.d("tag", "onFailure: Email not sent " + e.getMessage());
-                        }
-                    });
-                }
-            });
-        }*/
-
-
 
 
         DocumentReference documentReference = fStore.collection("users").document(userId);
@@ -192,20 +159,6 @@ public class Profile extends AppCompatActivity {
 
             }
         });
-
-       /*changeProfileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // open gallery
-                Intent i = new Intent(v.getContext(),EditProfile.class);
-                i.putExtra("fullName",fullName.getText().toString());
-                i.putExtra("email",email.getText().toString());
-                i.putExtra("phone",phone.getText().toString());
-                startActivity(i);
-            }
-        });*/
-
-
     }
 
     public void logout(View view) {
